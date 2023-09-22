@@ -1,7 +1,7 @@
 {
-  "name": "fetch-app",
-  "version": "8.0.0",
-  "description": "Fetch App",
+  "name": "fetch-final",
+  "version": "1.0.0",
+  "description": "Fetch final",
   "main": "App.tsx",
   "scripts": {
     "dev": "vite",
