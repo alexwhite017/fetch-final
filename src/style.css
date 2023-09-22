@@ -1,0 +1,65 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  background-image: url(/resources/double-bubble-dark.webp);
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.resultsBox {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-color: lightgray;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-bar {
+    width: 75%;
+  }
+  .selected-dogs {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .search-bar {
+    width: 100%;
+  }
+  .selected-dogs {
+    width: 100%;
+  }
+}
+.dogs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dog {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: goldenrod;
+  border: 1px solid red;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.searchButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
