@@ -18,6 +18,7 @@ const Results = (requestData: {
   const [isNextPage, setIsNextPage] = useState("" as string);
   const [isPreviousPage, setIsPreviousPage] = useState("" as string);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasDogs, setHasDogs] = useState(false);
 
   async function getDogs(request: string) {
     const data = await fetchDogsId(request);
@@ -31,6 +32,11 @@ const Results = (requestData: {
     const dogs = await fetchDogs(data.resultIds);
     setDogs(dogs);
     setIsLoading(false);
+    if (dogs.length > 0) {
+      setHasDogs(true);
+    } else {
+      setHasDogs(false);
+    }
   }
   useEffect(() => {
     getDogs(fetchRequestString(requestData));
@@ -39,7 +45,7 @@ const Results = (requestData: {
   return (
     <div>
       {isLoading && <div>Loading...</div>}
-      {!isLoading && (
+      {!isLoading && hasDogs ? (
         <div className="resultsBox w-3/4 rounded-lg mb-4 pt-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {dogs.map((dog) => (
@@ -85,6 +91,12 @@ const Results = (requestData: {
               </button>
             )}
           </div>
+        </div>
+      ) : (
+        <div className="resultsBox w-3/4 rounded-lg mb-4 pt-0">
+          <h1 className="font-bold justify-center text-center">
+            No Dogs found
+          </h1>
         </div>
       )}
     </div>
